@@ -65,3 +65,15 @@ Também é possível combinar a Pixel Compare com Benford, outra medida estétic
 </div>
 
 ## Adição de Novas Medidas Estéticas
+
+Para usuário mais avançados com um conhecimento básico de Rust é possível a adição de novas medidas estéticas! Toda medida estética é guardada na pasta `src/fitness` dentro do repositório, sendo cada código modularizado. Para criar uma nova medida estética, basta criar um novo arquivo na pasta mencionada com uma função seguindo a assinatura abaixo.
+
+```rust
+pub fn calculate_fitness(env: &mut Environment, idx: usize) -> ();
+```
+
+Essa função receberá um parâmetro mutável do tipo `Environment`, que possui todas os parâmetros e indivíduos da evolução e um parâmetro do tipo `usize`, que indica qual é o índice que a fitness atual ocupa em cada indivíduo.
+
+Após a criação dessa função, basta adicionar um novo import no início do arquivo `src/main.rs` e pronto! A GUI irá adicionar a medida fitness criada automaticamente como uma nova opção.
+
+É *recomendado* observar as medidas estéticas já criadas para auxiliar na criação de medidas estéticas novas.
